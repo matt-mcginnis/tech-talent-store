@@ -17,6 +17,11 @@
                     </a>
                 </p>
                 <p><%= product.description %></p>
+                <div class="starrr">
+                    <script type="text/javascript">
+                        $('.starrr').starrr()
+                    </script>
+                </div>
                 <br>
                 <br>
                 <p style="position: absolute; bottom: 20px;"><%= product.brand %></p>
@@ -30,6 +35,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel"><%= product.name %></h4>
               </div>
+
               <div class="modal-body">
                 <p><%= number_to_currency(product.price) %></p>
                 <p><%= product.description %></p>
