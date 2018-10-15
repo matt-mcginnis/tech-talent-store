@@ -1,0 +1,21 @@
+<% if can? :manage, User %>
+<h1>All Users</h1>
+
+<% @all_users.each do |user| %>
+    <ul>
+        <li>Id: <%= user.id %></li>
+        <li>Email: <%= user.email %></li>
+        <% if user.role == 'admin' %>
+            <li>Status: <%= user.role %></li>
+        <% else %>
+            <li> Status: user </li>
+            <li>
+                <%= form_tag add_user_to_admin_path do %>
+                    <%= hidden_field_tag :id, user.id %>
+                    <%= submit_tag  "Make Admin", class: "btn btn-primary"%>
+                <% end %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+<% end %>
