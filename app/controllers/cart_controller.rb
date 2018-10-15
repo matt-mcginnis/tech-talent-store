@@ -8,6 +8,13 @@ class CartController < ApplicationController
       redirect_back(fallback_location: root_path)
   end
 
+  def remove_from_cart
+      line_item = @line_items.find(params[:id])
+      line_item.destroy
+
+      redirect_back(fallback_location: view_order_path)
+  end
+
   def view_order
       @line_items = LineItem.all
   end

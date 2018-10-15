@@ -5,7 +5,11 @@
    <li><%= number_to_currency line_item.product.price %></li>
    <li>Qty: <%= line_item.quantity %></li>
    <li>Subtotal: <%= number_to_currency line_item.line_item_total %></li>
-   <li></li>
+        <%= form_tag remove_from_cart_path do %>
+            <%= hidden_field_tag :id, line_item.id %>
+            <%= submit_tag  "Remove From Cart", class: "btn btn-danger"%>
+        <% end %>
+   <br>
    <% end %>
 </div>
 
