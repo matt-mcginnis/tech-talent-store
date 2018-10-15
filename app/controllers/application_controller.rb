@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    before_action :categories, :brands
+    before_action :categories, :brands, :line_items
 
     def categories
         @categories = Category.order(:name)
@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
     def brands
         @brands = Product.pluck(:brand).sort.uniq
+    end
+
+    def line_items
+        @line_items = LineItem.all
     end
 
     def configure_permitted_parameters

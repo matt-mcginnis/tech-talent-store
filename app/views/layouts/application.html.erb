@@ -55,7 +55,15 @@
           </ul>
         </li>
         <li>
-            <%= link_to "View Cart", view_order_path %>
+            <% if @line_items.length != 0 %>
+                <%= link_to view_order_path do %>
+                    <i class="fa fa-shopping-cart" style="font-size: 18px;"> (<%= @line_items.length %>)</i>
+                <% end %>
+            <% else %>
+                <%= link_to view_order_path do %>
+                    <i class="fa fa-shopping-cart" style="font-size: 18px;"></i>
+                <% end %>
+            <% end %>
         </li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
