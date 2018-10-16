@@ -9,6 +9,12 @@
             <%= hidden_field_tag :id, line_item.id %>
             <%= submit_tag  "Remove From Cart", class: "btn btn-danger"%>
         <% end %>
+
+        <%= form_tag edit_cart_quantity_path do %>
+            <%= hidden_field_tag :id, line_item.id %>
+            <%= number_field_tag :quantity, nil, placeholder: "Change Quantity?" %>
+            <%= submit_tag  "Update", class: "btn btn-primary"%>
+        <% end %>
    <br>
    <% end %>
 </div>

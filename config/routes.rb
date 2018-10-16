@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'add_user_to_admin' => 'users#add_user_to_admin'
 
   post 'add_to_cart' => 'cart#add_to_cart'
+  post 'edit_cart_quantity' => 'cart#edit_cart_quantity'
   post 'remove_from_cart' => 'cart#remove_from_cart'
   get 'view_order' => 'cart#view_order'
   get 'checkout' => 'cart#checkout'
