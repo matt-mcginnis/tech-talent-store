@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'remove_from_cart' => 'cart#remove_from_cart'
   get 'view_order' => 'cart#view_order'
   get 'checkout' => 'cart#checkout'
+  post 'order_complete' => 'cart#order_complete'
 
   devise_for :users
 

@@ -55,9 +55,9 @@
           </ul>
         </li>
         <li>
-            <% if @line_items.length != 0 %>
+            <% if @order.line_items.length != 0 %>
                 <%= link_to view_order_path do %>
-                    <i class="fa fa-shopping-cart" style="font-size: 18px;"> (<%= @line_items.length %>)</i>
+                    <i class="fa fa-shopping-cart" style="font-size: 18px;"> (<%= @order.line_items.length %>)</i>
                 <% end %>
             <% else %>
                 <%= link_to view_order_path do %>

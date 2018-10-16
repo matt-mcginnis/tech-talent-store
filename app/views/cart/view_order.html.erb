@@ -1,17 +1,17 @@
 <h1>My Cart</h1>
 <div>
-   <% @line_items.each do |line_item| %>
+   <% @order.line_items.each do |line_item| %>
    <li><%= line_item.product.name %></li>
    <li><%= number_to_currency line_item.product.price %></li>
    <li>Qty: <%= line_item.quantity %></li>
    <li>Subtotal: <%= number_to_currency line_item.line_item_total %></li>
         <%= form_tag remove_from_cart_path do %>
-            <%= hidden_field_tag :id, line_item.id %>
+            <%= hidden_field_tag :product_id, line_item.product_id %>
             <%= submit_tag  "Remove From Cart", class: "btn btn-danger"%>
         <% end %>
 
         <%= form_tag edit_cart_quantity_path do %>
-            <%= hidden_field_tag :id, line_item.id %>
+            <%= hidden_field_tag :product_id, line_item.product_id %>
             <%= number_field_tag :quantity, nil, placeholder: "Change Quantity?" %>
             <%= submit_tag  "Update", class: "btn btn-primary"%>
         <% end %>
