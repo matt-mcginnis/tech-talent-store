@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    before_action :categories, :brands, :line_items
-    after_action :line_items
+    before_action :categories, :brands, :order
 
     helper_method :current_order
 
@@ -13,7 +12,7 @@ class ApplicationController < ActionController::Base
         @brands = Product.pluck(:brand).sort.uniq
     end
 
-    def line_items
+    def order
         @order = current_order
     end
 

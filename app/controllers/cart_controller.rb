@@ -56,7 +56,8 @@ class CartController < ApplicationController
 
         unless line_items.empty?
             current_order.update(user_id: current_user.id, subtotal: 0)
-
+            @order = current_order
+            
             line_items.each do |line_item|
                 line_item.product.update(quantity: (line_item.product.quantity - line_item.quantity))
                 @order.order_items[line_item.product_id] = line_item.quantity
